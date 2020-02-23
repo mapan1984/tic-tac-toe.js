@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>井字棋</title>
+  <link href="./style/bootstrap.min.css" rel="stylesheet">
+  <link href="./style/main.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <canvas id="chess" width="450px" height="450px"></canvas>
+      </div>
+      <div class="col-md-4">
+        <div id="select">
+          <h4>请选择执棋</h4>
+          <button class="btn btn-default" id="white">O</button>
+          <button class="btn btn-default" id="black">X</button>
+        </div>
+        <button class="btn btn-default" id="reset">重新开始</button>
+      </div>
+    </div>
+  </div>
+  <script src="./script/min/jquery.min.js"></script>
+  <script src="./script/min/bootstrap.min.js"></script>
+  <script type="module" src="./script/index.js"></script>
+</body>
+</html>
