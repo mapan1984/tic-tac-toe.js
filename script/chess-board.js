@@ -4,19 +4,19 @@ class ChessBoard extends Array {
 
         // 棋盘大小为 3 * 3 行列
         this.boardSize = 3
-        // 棋盘格大小为30*30的方格
+        // 棋格大小为 150*150 的方格
         this.gridSize = 150
 
         // 棋子颜色
         this.empty = 0
-        this.black = 1
-        this.white = -1
+        this.black = 1  // 'X'
+        this.white = -1  // 'O'
 
         this.chess = document.querySelector('#chess')
         this.context = this.chess.getContext('2d')
     }
 
-    // 初始棋盘数据
+    // 初始棋盘状态
     init() {
         for (let i = 0; i < this.boardSize; i++) {
             this[i] = new Array(this.boardSize)
@@ -37,6 +37,7 @@ class ChessBoard extends Array {
             this.context.moveTo(i * this.gridSize, 0)   // 起点
             this.context.lineTo(i * this.gridSize, this.boardSize * this.gridSize)  // 终点
             this.context.stroke()
+
             this.context.moveTo(0, i * this.gridSize)
             this.context.lineTo(this.boardSize * this.gridSize, i * this.gridSize)
             this.context.stroke()

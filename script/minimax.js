@@ -3,6 +3,8 @@ import {isVictory} from './estimate.js'
 function nextPlace(chessBoard, color) {
     let bestScore = -Infinity
     let bestPlace = null
+
+    // 遍历 color 方所有可以落子的位置，返回最大估值的位置
     for (let [i, j] of chessBoard.possiblePlaces()) {
 
         chessBoard[i][j] = color
@@ -27,7 +29,7 @@ function minimax(chessBoard, place, color) {
         return 1
     }
 
-    // 落在这步平手
+    // 落在这步平手，返回 0
     if (chessBoard.possiblePlaces().length == 0) {
         return 0
     }
@@ -44,7 +46,9 @@ function minimax(chessBoard, place, color) {
 
         chessBoard[i][j] = chessBoard.empty
 
-        bestScore = Math.max(score, bestScore)
+        if (score > bestScore) {
+            bestScore = score
+        }
     }
     return -bestScore
 
